@@ -10,5 +10,14 @@
   <%= @profile.description %>
 </p>
 
+<% if @profile.image.attached? %>
+<!-- @profile.image.present? will always return true, use attached? to check presence -->
+  <p>
+    <strong>Image:</strong>
+    <br>
+    <%= image_tag @profile.image %>
+  </p>
+<% end %>
+
 <%= link_to 'Edit', edit_profile_path(@profile) %> |
 <%= link_to 'Back', profiles_path %>
